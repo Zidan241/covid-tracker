@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Rubik+Glitch&display=swap');
+@import "../../../styling/theme.scss";
+.loginContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    height: 100%;
+    .loginCard{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 1rem;
+        border-radius: 10px;
+        width: 400px;
+        .loginHeadingContainer{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            .loginIcon{
+                width: 45px;
+                margin-right: 0.5rem;
+            }
+            .loginHeading1{
+                font-family: $primary-font;
+                font-weight: 600;
+                font-size: 40px;
+                color: $primary-color;
+                margin-right: 0.5rem;
+            }
+            .loginHeading2{
+                font-family: $secondary-font;
+                color: $secondary-color;
+                font-size: 40px;
+            }
+        }
+        .nameFieldsContainer{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            .nameField{
+                width: 49.5%;
+                .MuiOutlinedInput-root{
+                    border-radius: 10px;
+                }
+            }
+            margin-bottom: 0.5rem;
+        }
+        .loginField{
+            margin-bottom: 1rem;
+            width: 100%;
+            .MuiOutlinedInput-root{
+                border-radius: 10px;
+            }
+        }   
+        .loginButton{
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+        }
+    }
+}

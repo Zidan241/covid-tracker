@@ -1,0 +1,55 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@auth0/auth0-react": "^1.9.0",
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@material-ui/core": "5.0.0-alpha.32",
+    "@mui/material": "^5.5.3",
+    "@reduxjs/toolkit": "^1.8.1",
+    "@testing-library/jest-dom": "^5.16.3",
+    "@testing-library/react": "^12.1.4",
+    "@testing-library/user-event": "^13.5.0",
+    "auth0-js": "^9.19.0",
+    "auth0-lock": "^11.32.2",
+    "auth0-lock-passwordless": "^2.2.3",
+    "axios": "^0.26.1",
+    "node-sass": "^7.0.1",
+    "notistack": "^2.0.3",
+    "react": "^17.0.1",
+    "react-auth0-lock": "^0.0.3",
+    "react-dom": "^17.0.1",
+    "react-jwt": "^1.1.4",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "5.0.0",
+    "react-verification-code-input": "^1.2.9",
+    "store2": "^2.13.2",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
