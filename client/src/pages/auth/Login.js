@@ -60,9 +60,8 @@ export default function Login(props) {
         <div className="loginContainer">
             <Paper elevation={4} className="loginCard">
                 <div className="loginHeadingContainer">
-                <img alt="logo" src="/media/icon.png" className="loginIcon"/>
-                <Typography className="loginHeading1">Stay</Typography>
-                <Typography className="loginHeading2">Safe!</Typography>
+                    <Typography className="loginHeading1">Stay</Typography>
+                    <Typography className="loginHeading2">Safe!</Typography>
                 </div>
                 {otp?
                 <React.Fragment>

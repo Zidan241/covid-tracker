@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { StoreProvider } from "./authentication/store";
 import { createMuiTheme , ThemeProvider} from '@material-ui/core/styles';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import './helpers/axios';
 
 const theme = createMuiTheme({

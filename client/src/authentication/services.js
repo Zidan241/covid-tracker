@@ -6,7 +6,7 @@ export const webAuth = new auth0.WebAuth({
   clientID: params.clientId,
   responseType: "token id_token",
   redirectUri: `${window.location.origin}/authorize`,
-  useRefreshTokens: true
+  //useRefreshTokens: true
 });
 
 export const otpStart = (email) => {
@@ -39,8 +39,20 @@ export const otpLogin = (email, otp) => {
 
 export const logout = () => {
   webAuth.logout({
-    returnTo: `${window.location.origin}`,
-    clientID: process.env.REACT_APP_CLIENT_ID,
+    returnTo: `${window.location.origin}/login`,
+    clientID:  params.clientId,
+  });
+};
+
+export const getUser = (token) => {
+  return new Promise((resolve, reject) => {
+      webAuth.client.userInfo(token, (err,user) => {
+        if (err) {
+          reject(err);
+          console.log(err);
+        }
+        resolve(user);
+      });
   });
 };
 // credits --> https://github.com/krizten/passwordless-auth

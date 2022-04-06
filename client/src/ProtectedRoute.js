@@ -11,7 +11,6 @@ const ProctectedRoute = ({
   ...rest
 }) => {
   const { isAuthenticated } = useContext(StoreContext);
-
   const routeComponent = (props) =>
     isAuthenticated ? (
       Render ? (

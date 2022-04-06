@@ -20,10 +20,9 @@ export default function Authorize(props) {
               logout();
               return;
             }
-    
             const { email, name, picture, sub: id } = res.idTokenPayload;
             setUserData({ email, name, picture, id });
-            authenticateUser(res.idToken);
+            authenticateUser(res.accessToken);
           });
         }
       };
