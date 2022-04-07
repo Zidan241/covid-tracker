@@ -1,5 +1,4 @@
-import React, { useContext, useRef, useEffect, useState } from "react";
-import {AppBar,Toolbar,IconButton,Typography,Menu,Avatar,Tooltip,MenuItem} from '@mui/material';
+import React, { useRef, useEffect, useState } from "react";
 import '../styling/map.scss';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 mapboxgl.accessToken = 'pk.eyJ1IjoiemlkYW4yNDEiLCJhIjoiY2wxbncwZnRxMDBycjNkbXk2emN6NmJrMCJ9.ATBdEV1eI0BTteOPzJjriQ';
@@ -24,10 +23,7 @@ export default function Map (props) {
             setZoom(map.current.getZoom().toFixed(2));
         });
         map.current.on('load', () => {
-            // Add a GeoJSON source with 3 points.
-            const marker = new mapboxgl.Marker()
-            .setLngLat([-91.3952, -0.9145])
-            .addTo(map.current); // add the marker to the map
+            //user location
             map.current.addControl(new mapboxgl.GeolocateControl({
                 positionOptions: {
                 enableHighAccuracy: true
@@ -35,6 +31,7 @@ export default function Map (props) {
                 trackUserLocation: true,
                 showUserHeading: true
             }));
+            //patients markers
             map.current.addSource('points', {
                 'type': 'geojson',
                 'data': {

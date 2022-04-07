@@ -64,7 +64,7 @@ function App() {
           <Route path="/authorize" render={(prop) => <Authorize {...prop} setLoading={setLoading}/>}/>
           <Route path="/login" render={(prop) => <Login {...prop} setLoading={setLoading} handleError={handleClick}/>}/>
           <Route path="/register" render={(prop) => <Register {...prop} setLoading={setLoading} handleError={handleClick}/>}/>
-          <ProctectedRoute path="/dashboard" render={(prop) => <Home {...prop} setLoading={setLoading} handleError={handleClick}/>}/>
+          <Route path="/dashboard" render={(prop) => <Home {...prop} setLoading={setLoading} handleError={handleClick}/>}/>
           <Route path="/" render={(prop) => <Redirect to={'/dashboard'}/>}/>
         </Switch>
         <Backdrop

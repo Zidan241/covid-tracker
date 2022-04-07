@@ -36,7 +36,7 @@ export default function Home (props) {
             </div>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src={user.picture}/>
+                  <Avatar alt="Remy Sharp" src={user&&user.picture}/>
                   {Boolean(anchorElUser)?
                     <KeyboardArrowUpIcon className="homeHeadingAvatarIcon"/>
                   :
