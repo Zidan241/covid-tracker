@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Button,TextField,Paper, Typography} from '@mui/material';
+import {Button,TextField,Paper, Typography,Avatar} from '@mui/material';
 import './styling/login.scss';
 import ReactCodeInput from 'react-verification-code-input';
 import {validateEmail} from '../../validation/helpers';
@@ -21,7 +21,8 @@ export default function Login(props) {
         const doReq = async () => {
             try {
                 props.setLoading(true);
-                await otpStart(email);
+                const res = await otpStart(email);
+                console.log(res);
                 props.setLoading(false);
                 setOtp(true);
                 props.handleError(`OTP Code has been sent to ${email}`, "success");
@@ -59,6 +60,7 @@ export default function Login(props) {
     return (
         <div className="loginContainer">
             <Paper elevation={4} className="loginCard">
+                <Avatar className="loginAvatar"/>
                 <div className="loginHeadingContainer">
                     <Typography className="loginHeading1">Stay</Typography>
                     <Typography className="loginHeading2">Safe!</Typography>
@@ -72,12 +74,14 @@ export default function Login(props) {
                 <React.Fragment>
                     <TextField
                     error={click && (!email||!validateEmail(email))}
+                    value={email}
                     type="email" 
                     variant="outlined" 
                     label="email" 
                     className="loginField" 
                     onChange={(e)=>{setEmail(e.target.value);}}
                     color="blue"
+                    onKeyDown={(e)=>{if(e.key === 'Enter')requestOtp();}}
                     />
                     <Button color="blue" variant="contained" className="loginButton" onClick={requestOtp}>Login</Button>
                     <Button color="blue" variant="text" className="goToButton" onClick={()=>{history.push('/register')}}>new user?</Button>

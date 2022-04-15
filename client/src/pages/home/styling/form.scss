@@ -8,18 +8,33 @@
         font-weight: bold;
     }
     .formTextField{
-        margin: 0.5rem;
+        .MuiOutlinedInput-root{
+            border-radius: 10px;
+        }
+    }
+    .formlongField{
+        @extend .formTextField;
+        margin-right: 0.25rem;
+    }
+    .formlatField{
+        @extend .formTextField;
+        margin-left: 0.25rem;
     }
     .tempInputContainer{
-        margin: 0.5rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
         .tempField{
             width: 25%;
+            .MuiOutlinedInput-root{
+                border-radius: 10px;
+            }
         }
         .tempSlider{
             width: 60%;
         }
+    }
+    .formButton{
+        border-radius: 10px;
     }
 }

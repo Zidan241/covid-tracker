@@ -28,6 +28,13 @@ const TempSchema = new Schema({
     type : Date,
     default: new Date()
   },
+  deleted : {
+    type : Boolean,
+    default:false
+  },
+  deletedOn : {
+      type : Date,
+  }
 });
 
 module.exports = Temp = mongoose.model('Temp', TempSchema);

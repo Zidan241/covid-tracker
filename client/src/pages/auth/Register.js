@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Button,TextField,Paper, Typography} from '@mui/material';
+import {Button,TextField,Paper, Typography,Avatar} from '@mui/material';
 import './styling/login.scss';
 import ReactCodeInput from 'react-verification-code-input';
 import {validateEmail} from '../../validation/helpers';
@@ -64,6 +64,7 @@ export default function Register(props) {
     return (
         <div className="loginContainer">
             <Paper elevation={4} className="loginCard">
+                <Avatar className="loginAvatar"/>
                 <div className="loginHeadingContainer">
                     <Typography className="loginHeading1">Stay</Typography>
                     <Typography className="loginHeading2">Safe!</Typography>
