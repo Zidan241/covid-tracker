@@ -1,0 +1,25 @@
+@import "../../../styling/theme.scss";
+.dialogContainer{
+    .MuiPaper-root{
+        border-radius: 10px;
+    }
+    .formTitle{
+        color: $primary-color;
+        font-weight: bold;
+    }
+    .formTextField{
+        margin: 0.5rem;
+    }
+    .tempInputContainer{
+        margin: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .tempField{
+            width: 25%;
+        }
+        .tempSlider{
+            width: 60%;
+        }
+    }
+}

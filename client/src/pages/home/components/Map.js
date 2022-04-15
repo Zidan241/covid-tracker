@@ -76,17 +76,6 @@ export default function Map (props) {
                     'circle-stroke-color': '#ffffff'
                 }
             });
-            map.current.addLayer({
-                'id': 'circle',
-                'type': 'circle',
-                'source': 'points',
-                'paint': {
-                    'circle-color': '#4264fb',
-                    'circle-radius': 8,
-                    'circle-stroke-width': 2,
-                    'circle-stroke-color': '#ffffff'
-                }
-            });
             // Center the map on the coordinates of any clicked circle from the 'circle' layer.
             map.current.on('click', 'circle', (e) => {
                 map.flyTo({

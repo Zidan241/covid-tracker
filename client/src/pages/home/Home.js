@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { StoreContext } from "../../authentication/store";
 import {Fab,AppBar,Toolbar,IconButton,Typography,Menu,Avatar,Tooltip,MenuItem} from '@mui/material';
 import './styling/home.scss';
@@ -7,10 +7,20 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { logout } from "../../authentication/services";
 import Map from "./components/Map";
 import AddIcon from '@mui/icons-material/Add';
+import InputTempForm from "./components/InputTempForm";
 
 export default function Home (props) {
   const { user, resetAuth } = useContext(StoreContext);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -70,9 +80,10 @@ export default function Home (props) {
           </Toolbar>
       </AppBar>
       <Map/>
-      <Fab className="homeFab" color="blue" aria-label="add">
+      <Fab onClick={handleClickOpen} className="homeFab" color="blue" aria-label="add">
         <AddIcon />
       </Fab>
+      <InputTempForm open={open} setLoading={props.setLoading} handleClose={handleClose} handleError={props.handleError}/>
     </div>
   );
 };

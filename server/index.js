@@ -4,6 +4,7 @@ const app= express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 require('dotenv').config();
+const bodyParser = require('body-parser');
 
 const origin=['http://localhost:3000', 'http://localhost:5000']
 app.use(cors({
@@ -12,9 +13,16 @@ app.use(cors({
   optionSuccessStatus:200
 }));
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
 //Require Route Handlers
 const auth = require("./routes/api/auth");
+const temp = require("./routes/api/temp");
 app.use("/api/auth", auth);
+app.use("/api/temp", temp);
 
 //Getting Mongo's connection URI
 const db = process.env.MONGODB_URI;

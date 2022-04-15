@@ -28,7 +28,7 @@ exports.register = async function (req, res) {
     var management = new ManagementClient({
       domain: 'dev-c04n2wmg.us.auth0.com',
       clientId: 'tpUfz8UPXqU3p85T2swJAiIxURlwkW9I',
-      clientSecret: 'krWg_s_UimxQYenCaMlwcKDp_39E8mK1Wj4HxJ4KYYkAfV17gPUGEWncswX37Eif',
+      clientSecret: process.env.AUTH0_CLIENT_SECRET,
       scope: 'create:users read:users update:users',
     });
     const users = await management.getUsersByEmail(email);

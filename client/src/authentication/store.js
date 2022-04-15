@@ -1,5 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import storage from "store2";
+import setToken from "../helpers/setToken";
 
 const initialState = {
   isAuthenticated: false,
@@ -46,6 +47,7 @@ const StoreProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const dispatches = {
     authenticateUser(authToken) {
+      setToken(authToken);
       dispatch({
         type: types.AUTHENTICATE_USER,
         payload: authToken,
@@ -58,6 +60,7 @@ const StoreProvider = ({ children }) => {
       });
     },
     resetAuth() {
+      setToken();
       dispatch({
         type: types.RESET_AUTH,
       });
