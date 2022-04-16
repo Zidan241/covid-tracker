@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 require('dotenv').config();
 const bodyParser = require('body-parser');
 
-const origin=['http://localhost:3000', 'http://localhost:5000']
+const origin=['https://covid-tracker-nodogoro.herokuapp.com','http://localhost:3000', 'http://localhost:5000']
 app.use(cors({
   origin:origin,
   credentials: true,
