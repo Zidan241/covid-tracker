@@ -129,3 +129,16 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .profileContainer{
+        flex-direction: column;
+        .profileUserinfoCard{
+            margin: 0;
+        }
+        .profileUserHistoryContainer{
+            margin: 0;
+            margin-top: 4rem;
+        }
+    }
+}

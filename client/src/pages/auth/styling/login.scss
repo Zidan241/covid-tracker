@@ -84,3 +84,10 @@
         }
     }
 }
+@media screen and (max-width: 768px) {
+    .loginContainer{
+        .loginCard{
+            width: 350px;
+        }
+    }
+}

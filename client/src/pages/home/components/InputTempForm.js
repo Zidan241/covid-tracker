@@ -81,10 +81,10 @@ export default function InputTempForm(props) {
                     <DialogContentText className="formTextField">
                         log your information on the map frequently and Stay Safe!
                     </DialogContentText>
-                    <div>
+                    <div className="formLongAndLatFields">
                         <TextField
                             label="long"
-                            className="formlongField"
+                            className="formLongField"
                             value={long ? long : "-"}
                             disabled={!long}
                             margin="normal"
@@ -93,7 +93,7 @@ export default function InputTempForm(props) {
                         <TextField
                             label="lat"
                             margin="normal"
-                            className="formlatField"
+                            className="formLatField"
                             value={lat ? lat : "-"}
                             disabled={!lat}
                             onChange={(e)=>{setLat(e.target.value);}}

@@ -12,13 +12,16 @@
             border-radius: 10px;
         }
     }
-    .formlongField{
-        @extend .formTextField;
-        margin-right: 0.25rem;
-    }
-    .formlatField{
-        @extend .formTextField;
-        margin-left: 0.25rem;
+    .formLongAndLatFields{
+        display: flex;
+        .formLongField{
+            @extend .formTextField;
+            margin-right: 0.25rem;
+        }
+        .formLatField{
+            @extend .formTextField;
+            margin-left: 0.25rem;
+        }
     }
     .tempInputContainer{
         display: flex;
