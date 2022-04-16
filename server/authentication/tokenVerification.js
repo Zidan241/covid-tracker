@@ -3,7 +3,6 @@ const axios = require('axios')
 
 module.exports= (req, res, next)=>{
     const token= req.headers.auth_token;
-    console.log(token)
     if(!token)  
     {
         return res.status(401).send({error: "please login"});

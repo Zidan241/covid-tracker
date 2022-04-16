@@ -4,11 +4,10 @@ import '../styling/form.scss';
 import ThermostatIcon from '@mui/icons-material/Thermostat';
 import axios from 'axios';
 import { link } from '../../../helpers/constants';
-import { getToken } from '../../../authentication/services'
-import setToken from "../../../helpers/setToken";
 
 export default function InputTempForm(props) {
-    const [loc, setLoc] = useState(null);
+    const [lat, setLat] = useState(null);
+    const [long, setLong] = useState(null);
     const [temp, setTemp] = useState(37);
     const [comment, setComment] = useState("");
 
@@ -19,7 +18,8 @@ export default function InputTempForm(props) {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((pos) => {
                 //str = "Lat: " + pos.coords.latitude + "Long: " + pos.coords.longitude; 
-                setLoc(pos)
+                setLat(pos.coords.latitude);
+                setLong(pos.coords.longitude);
             });
         } else {
             props.handleError("Geolocation is not supported by this browser.", "error");
@@ -49,16 +49,21 @@ export default function InputTempForm(props) {
     }, []);
 
     const handleSubmit = async () => {
-        if (!loc) {
+        if (!lat || !long) {
             return props.handleError("could get your current location, please check your browser", "error");
         }
         if (!temp) {
             return props.handleError("please make sure you have entered a valid temperature", "error");
         }
         props.setLoading(true);
-        axios.post(`${link}temp/submitTemp`, { long: loc.coords.longitude, lat: loc.coords.latitude, temp: temp , comment: comment}).then(res => {
+        axios.post(`${link}temp/submitTemp`, { long: long, lat: lat, temp: temp , comment: comment}).then(res => {
             props.setLoading(false);
-
+            props.handleError("Temperature log created successfully, Stay Safe!","success");
+            props.setData(prevState=>([...prevState,res.data.data]))
+            //reset component
+            setComment("");
+            setTemp(37);
+            props.handleClose();
         }).catch(err => {
             props.setLoading(false);
             const errorMsg = err.response?.data.error || "Something went wrong. Please try again.";
@@ -80,16 +85,18 @@ export default function InputTempForm(props) {
                         <TextField
                             label="long"
                             className="formlongField"
-                            value={loc ? loc.coords.longitude : "-"}
-                            disabled={true}
+                            value={long ? long : "-"}
+                            disabled={!long}
                             margin="normal"
+                            onChange={(e)=>{setLong(e.target.value);}}
                         />
                         <TextField
                             label="lat"
                             margin="normal"
                             className="formlatField"
-                            value={loc ? loc.coords.latitude : "-"}
-                            disabled={true}
+                            value={lat ? lat : "-"}
+                            disabled={!lat}
+                            onChange={(e)=>{setLat(e.target.value);}}
                         />
                     </div>
                     <div className="tempInputContainer">

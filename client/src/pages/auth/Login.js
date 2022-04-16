@@ -22,7 +22,6 @@ export default function Login(props) {
             try {
                 props.setLoading(true);
                 const res = await otpStart(email);
-                console.log(res);
                 props.setLoading(false);
                 setOtp(true);
                 props.handleError(`OTP Code has been sent to ${email}`, "success");

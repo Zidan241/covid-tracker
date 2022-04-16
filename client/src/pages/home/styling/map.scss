@@ -1,4 +1,5 @@
 .mapContainer{
+    position: relative;
     .map-container{
         height: calc(100vh - 80px);
     }
@@ -8,10 +9,24 @@
         padding: 6px 12px;
         font-family: monospace;
         z-index: 1;
+        top: 10px;
+        left: 5px;
         position: absolute;
-        top: 80;
-        left: 0;
-        margin: 12px;
-        border-radius: 4px;
+        border-radius: 5px;
+        width: 250px;
     }
+    .quake-info {
+        position: absolute;
+        font-family: monospace;
+        z-index: 1;
+        top: 62px;
+        left: 5px;
+        padding: 6px 12px;
+        width: 250px;
+        font-size: 14px;
+        color: #fff;
+        background-color: rgba(35, 55, 75, 0.9);
+        border-radius: 5px;
+      }
+      
 }

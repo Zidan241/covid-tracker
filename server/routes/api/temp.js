@@ -5,7 +5,8 @@ const verify = require('../../authentication/tokenVerification');
 
 //protected route
 router.post("/submitTemp", verify, tempController.submitTemp);
-router.post("/getMyTemps", verify, tempController.getMyTemps);
-router.post("/getAllTemps", verify, tempController.getAllTemps);
+router.get("/getMyTemps", verify, tempController.getMyTemps);
+router.get("/getAllTemps", verify, tempController.getAllTemps);
+router.delete("/deleteTemp/:tempId", verify, tempController.deleteTemp);
 
 module.exports = router; 

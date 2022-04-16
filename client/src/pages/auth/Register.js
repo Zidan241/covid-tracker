@@ -58,8 +58,9 @@ export default function Register(props) {
         }
     };
     const resend = () => {
-        setOtp(false);
-        setClick(false);
+        history.push('/login');
+        //setOtp(false);
+        //setClick(false);
     };
     return (
         <div className="loginContainer">

@@ -24,7 +24,7 @@ exports.register = async function (req, res) {
     const email = req.body.email;
     const name = req.body.name;
     if(!email)
-      return res.status(400).send({error: 'Email is required'});
+      return res.status(400).send({error: 'email is required'});
     var management = new ManagementClient({
       domain: 'dev-c04n2wmg.us.auth0.com',
       clientId: 'tpUfz8UPXqU3p85T2swJAiIxURlwkW9I',
@@ -40,6 +40,26 @@ exports.register = async function (req, res) {
       email_verified: true
     });
     return res.send({ data: "user created successfully" });
+  } catch (err) {
+    console.log(err);
+    return res.status(400).send({ error: "something went wrong"});
+  }
+};
+exports.updateInfo = async function (req, res) {
+  const user = req.user
+  try{
+    const name = req.body.name;
+    if(!name)
+      return res.status(400).send({error: 'name is required'});
+    var management = new ManagementClient({
+      domain: 'dev-c04n2wmg.us.auth0.com',
+      clientId: 'tpUfz8UPXqU3p85T2swJAiIxURlwkW9I',
+      clientSecret: process.env.AUTH0_CLIENT_SECRET,
+      scope: 'create:users read:users update:users',
+    });
+    const foundUser = await management.getUsersByEmail(user.email);
+    const updatedUser = await management.updateUser({id:foundUser[0].user_id},{name:name})
+    return res.send({ data: updatedUser });
   } catch (err) {
     console.log(err);
     return res.status(400).send({ error: "something went wrong"});

@@ -61,7 +61,6 @@ export const getToken = () =>{
         reject(err);
         console.log(err);
       }
-      console.log(result)
       resolve(result);
     });
   });

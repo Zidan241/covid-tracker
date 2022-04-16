@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Rubik+Glitch&display=swap');
+@import "../../../styling/theme.scss";
+.profileContainer{
+    background-color: whitesmoke;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    .profileBackButton{
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        .icon{
+            font-size: 4rem;
+        }
+    }
+    .profileUserinfoCard{
+        margin-right: 1rem;
+        background-color: rgba($color: #000000, $alpha: 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 1rem;
+        border-radius: 10px;
+        width: 300px;
+        position: relative;
+        padding-top: 65px;
+        height: 200px;
+        .profileUserinfoAvatar{
+            height: 110px;
+            width: 110px;
+            position: absolute;
+            top: -50px;
+            border: 5px solid whitesmoke;
+        }
+        .profileUserinfoHeadingContainer{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            .profileUserinfoHeading1{
+                font-family: $secondary-font;
+                font-weight: 600;
+                font-size: 40px;
+                color: white;
+                margin-right: 0.5rem;
+            }
+            .profileUserinfoHeading2{
+                font-family: $secondary-font;
+                color: $secondary-color;
+                font-size: 40px;
+            }
+        }
+        .profileUserinfoField{
+            color: white;
+            margin-bottom: 1rem;
+            width: 100%;
+            .MuiInputLabel-root{
+                color: white;
+            }
+            .MuiOutlinedInput-root{
+                color: white;
+                border-radius: 10px;
+            }
+        }   
+        .loginButton{
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+        }
+    }
+    .profileUserHistoryContainer{
+        margin-left: 1rem;
+        background-color: rgba($color: #000000, $alpha: 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 1rem;
+        border-radius: 10px;
+        width: 300px;
+        position: relative;
+        padding-top: 65px;
+        height: 200px;
+        .profileUserHistoryTitle{
+            position: absolute;
+            top: -55px;
+            font-size: 3.5rem;
+            color: $primary-color;
+            font-weight: bold;
+            background-color: whitesmoke;
+            border-radius: 10px;
+            padding: 0.25rem;
+        }
+        .profileUserHistory{
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+            width: 100%;
+            .profileUserHistoryEmpty{
+                color: #fff;
+                font-style: italic;
+            }
+            .profileUserHistoryItem{
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 0.5rem;
+                padding: 1rem;
+                .profileUserHistoryItemTemp{
+                    font-weight: bold;
+                }
+                .profileUserHistoryItemDate{
+                    font-size: 0.8rem;
+                    font-style: italic;
+                }
+            }
+        }
+        .progressContainer{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

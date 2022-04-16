@@ -16,6 +16,7 @@
     "axios": "^0.26.1",
     "jquery": "^3.6.0",
     "mapbox-gl": "^2.7.1",
+    "moment": "^2.29.2",
     "node-sass": "^7.0.1",
     "notistack": "^2.0.3",
     "react": "^17.0.1",
@@ -25,6 +26,7 @@
     "react-scripts": "5.0.0",
     "react-verification-code-input": "^1.2.9",
     "store2": "^2.13.2",
+    "sweetalert2": "^11.4.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

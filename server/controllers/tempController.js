@@ -19,8 +19,8 @@ exports.submitTemp = async function (req, res) {
 exports.getMyTemps = async function (req, res) {
     try{
         const user = req.user;
-
-        return res.send({ data: {} });
+        const myTemps = await Temp.find({email:user.email,deleted:false}).lean();
+        return res.send({ data: myTemps });
     } catch (err) {
         console.log(err);
         return res.status(400).send({ error: "something went wrong"});
@@ -32,6 +32,18 @@ exports.getAllTemps = async function (req, res) {
         const user = req.user;
         const allTemps = await Temp.find({deleted:false}).lean();
         return res.send({ data: allTemps });
+    } catch (err) {
+        console.log(err);
+        return res.status(400).send({ error: "something went wrong"});
+    }
+};
+
+exports.deleteTemp = async function (req, res) {
+    try{
+        const user = req.user;
+        const tempId = req.params.tempId;
+        const deletedTemp = await Temp.findOneAndUpdate(tempId,{deleted:true,deletedOn:new Date()}).lean();
+        return res.send({ data: deletedTemp });
     } catch (err) {
         console.log(err);
         return res.status(400).send({ error: "something went wrong"});
