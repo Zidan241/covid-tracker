@@ -32,9 +32,14 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
+app.all('/', function(req, res) {
+  res.redirect("/dashboard");
+});
 if (process.env.NODE_ENV==='production') {
   app.use(express.static('../client/build'));
 }
+app.get('/', (req, res) => res.send('Dashboard'));
+
 const port = process.env.PORT || 5000;
 app.listen(port, () =>{
   console.log(`Server up and running on port ${port}`);
