@@ -5,6 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 require('dotenv').config();
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const origin=['https://covid-tracker-nodogoro.herokuapp.com','http://localhost:3000', 'http://localhost:5000']
 app.use(cors({
@@ -35,6 +36,9 @@ mongoose
 
 if (process.env.NODE_ENV==='production') {
   app.use(express.static('../client/build'));
+  app.get("*", (req, res) =>{
+    res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));                    
+  });
 }
 
 const port = process.env.PORT || 5000;
